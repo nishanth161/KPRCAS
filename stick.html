@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fixed{
+            position: fixed;
+            height: 10px;
+        }
+        .sticky{
+            position: sticky;
+            top:0px;
+        }
+        .relative{
+            position: relative;
+            top:10px;
+            left: 50px;
+            height: 100vh;
+            border: solid 10px green;
+        }
+        .child{
+            position: absolute;
+            top:150px;
+            left: 200px;
+            padding: 10px;
+            border: dotted 5px red;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi accusantium nulla, deserunt temporibus dolorum dignissimos sed distinctio rerum dolore maiores minima, voluptatem cumque illum esse nisi rem voluptatibus praesentium mollitia. Ipsa, quas pariatur? Dolorum impedit ab nostrum provident temporibus laudantium quidem minus aut blanditiis. Obcaecati et odit rem quis aperiam temporibus, corrupti nam. Doloribus maiores facilis provident neque animi optio?</p>
+    <div class="fixed">
+        <span>Fixed</span>
+    </div>
+    <div class="sticky">
+        <span>Sticky</span>
+    </div>
+    <div class="relative">
+        <span>relative</span>
+        <div class="child">
+            <span>absolute</span>
+        </div>
+    </div>
+</body>
+</html>
