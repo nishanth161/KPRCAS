@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Submission</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* light blue */
+      color: #333;
+      padding: 20px;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #005f99;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004070;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e6f7ff;
+      border-left: 5px solid #3399ff;
+      color: #003366;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+         
+<body>
+  <form id="myForm">
+    <label for="name">NAME:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required />
+    
+    <label for="rollno">ROLLNO:</label>
+    <input type="text" id="rollno" name="rollno" placeholder="Enter your rollno" required />
+
+    <label for="dept">DEPT:</label>
+    <input type="text" id="dept" name="dept" placeholder="Enter your department" required />
+
+    <label for="college">COLLEGE:</label>
+    <input type="text" id="college" name="college" placeholder="Enter your college name" required />
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Stop the form from submitting and refreshing the page
+      
+      // Get input values
+      const name = form.name.value.trim();
+      const rollno = form.rollno.value.trim();
+      const dept = form.dept.value.trim();
+      const college = form.college.value.trim();
+
+      // Simple validation
+      if (!name || !rollno || !dept || !college) {
+        resultDiv.innerHTML = "<p style='color:red;'>Please fill in all fields.</p>";
+        return;
+      }
+
+      // Show the submitted details below the form
+      resultDiv.innerHTML = `
+        <h3>Submitted Details:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Roll No:</strong> ${rollno}</p>
+        <p><strong>Department:</strong> ${dept}</p>
+        <p><strong>College:</strong> ${college}</p>
+      `;
+
+      // Clear the form inputs
+      form.reset();
+    });
+  </script>
+</body>
+</html>

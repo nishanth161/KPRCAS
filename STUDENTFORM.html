@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Info Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    /* Animated gradient background */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #ff4e50, #f9d423, #6a11cb, #2575fc);
+      background-size: 800% 800%;
+      animation: gradientShift 15s ease infinite;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      max-width: 420px;
+      width: 100%;
+      box-sizing: border-box;
+      color: #4a148c;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #6a1b9a;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 2px solid #ba68c8;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      border-color: #4a148c;
+      outline: none;
+    }
+
+    button {
+      background: #4a148c;
+      color: #fff;
+      border: none;
+      padding: 14px 0;
+      width: 100%;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6a1b9a;
+    }
+
+    .output {
+      max-width: 420px;
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 22px 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      font-size: 1.1rem;
+      color: #4a148c;
+      font-weight: 600;
+      white-space: pre-line;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Info Form</h1>
+  <form id="studentForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required />
+
+    <label for="rollno">Roll No</label>
+    <input type="text" id="rollno" placeholder="Enter your roll number" required />
+
+    <label for="department">Department</label>
+    <input type="text" id="department" placeholder="Enter your department" required />
+
+    <label for="year">Year of Study</label>
+    <select id="year" required>
+      <option value="" disabled selected>Select year</option>
+      <option value="1st Year">1st Year</option>
+      <option value="2nd Year">2nd Year</option>
+      <option value="3rd Year">3rd Year</option>
+      <option value="4th Year">4th Year</option>
+    </select>
+
+    <label for="college">College</label>
+    <input type="text" id="college" placeholder="Enter your college name" required />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    const form = document.getElementById('studentForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const rollno = document.getElementById('rollno').value.trim();
+      const department = document.getElementById('department').value.trim();
+      const year = document.getElementById('year').value;
+      const college = document.getElementById('college').value.trim();
+
+      output.textContent = 
+        `📝 Student Details:\n` +
+        `Name: ${name}\n` +
+        `Roll No: ${rollno}\n` +
+        `Department: ${department}\n` +
+        `Year of Study: ${year}\n` +
+        `College: ${college}`;
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
